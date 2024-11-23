@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="mn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Нэвтрэх</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+    <div class="login-container">
+        <h1>Нэвтрэх</h1>
+        <form id="login-form">
+            <input type="email" id="email" placeholder="И-мэйл" required>
+            <input type="password" id="password" placeholder="Нууц үг" required>
+            <button type="submit">Нэвтрэх</button>
+        </form>
+        <p>Шинэ хэрэглэгч үү? <a href="signup.html">Бүртгүүлэх</a></p>
+    </div>
+
+    <script>
+        document.getElementById("login-form").addEventListener("submit", function (e) {
+            e.preventDefault();
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            const users = JSON.parse(localStorage.getItem("users")) || [];
+            const user = users.find(user => user.email === email && user.password === password);
+
+            if (user) {
+                alert("Амжилттай нэвтэрлээ!");
+                window.location.href = "index.html";
+            } else {
+                alert("Имэйл эсвэл нууц үг буруу байна!");
+            }
+        });
+    </script>
+</body>
+
+</html>

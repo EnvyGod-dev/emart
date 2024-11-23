@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="mn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бүртгүүлэх</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+    <div class="signup-container">
+        <h1>Бүртгүүлэх</h1>
+        <form id="signup-form">
+            <input type="text" id="name" placeholder="Нэр" required>
+            <input type="email" id="email" placeholder="И-мэйл" required>
+            <input type="password" id="password" placeholder="Нууц үг" required>
+            <button type="submit">Бүртгүүлэх</button>
+        </form>
+        <p>Та бүртгэлтэй юу? <a href="login.html">Нэвтрэх</a></p>
+    </div>
+
+    <script>
+        document.getElementById("signup-form").addEventListener("submit", function (e) {
+            e.preventDefault();
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            const users = JSON.parse(localStorage.getItem("users")) || [];
+            if (users.some(user => user.email === email)) {
+                alert("Энэ имэйлээр аль хэдийн бүртгэгдсэн байна!");
+                return;
+            }
+
+            users.push({ name, email, password });
+            localStorage.setItem("users", JSON.stringify(users));
+            alert("Амжилттай бүртгэгдлээ!");
+            window.location.href = "login.html";
+        });
+    </script>
+</body>
+
+</html>

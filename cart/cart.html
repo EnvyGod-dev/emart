@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="mn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+
+<body>
+    <div id="header-placeholder"></div>
+
+    <main>
+        <h1>Shopping Cart</h1>
+        <ul id="cart-container"></ul>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+            const container = document.getElementById("cart-container");
+
+            cart.forEach(item => {
+                const li = document.createElement("li");
+                li.textContent = `${item.name} - ${item.price}`;
+                container.appendChild(li);
+            });
+        });
+    </script>
+</body>
+
+</html>

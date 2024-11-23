@@ -1,0 +1,153 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+/* Header */
+.header {
+    background-color: #f8f8f8;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-links a {
+    margin-left: 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+.header-bottom {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.search-bar {
+    flex: 1;
+    margin: 0 10px;
+    padding: 5px;
+}
+
+.search-btn {
+    padding: 5px 10px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    background-color: #333;
+    padding: 10px 0;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Product Details */
+.product-details {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.product-container {
+    display: flex;
+    max-width: 1000px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.product-image img {
+    max-width: 400px;
+    width: 100%;
+    object-fit: contain;
+    padding: 20px;
+}
+
+.product-info {
+    flex: 1;
+    padding: 20px;
+}
+
+.product-info h1 {
+    font-size: 24px;
+    margin: 0 0 10px;
+}
+
+.product-rating {
+    color: #ff9800;
+    margin: 10px 0;
+}
+
+.product-info h2 {
+    color: #e60000;
+    font-size: 20px;
+    margin: 20px 0;
+}
+
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.quantity-selector button {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+    cursor: pointer;
+}
+
+.quantity-selector input {
+    width: 50px;
+    text-align: center;
+    border: 1px solid #ddd;
+    margin: 0 5px;
+}
+
+.total-price {
+    color: #e60000;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.add-to-cart,
+.buy-now {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.add-to-cart {
+    background-color: #333;
+    color: #fff;
+}
+
+.buy-now {
+    background-color: #e60000;
+    color: #fff;
+}
+
+.payment-options img {
+    width: 50px;
+    margin: 5px;
+    vertical-align: middle;
+}

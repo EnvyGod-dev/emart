@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="mn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+    <div id="header-placeholder"></div>
+
+    <main>
+        <div class="product-details">
+            <img id="product-image" src="" alt="Product Image">
+            <h1 id="product-name"></h1>
+            <p id="product-description"></p>
+            <div id="product-price"></div>
+            <div id="product-rating"></div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Load product details from localStorage
+            const productData = JSON.parse(localStorage.getItem("productDetails"));
+            if (productData) {
+                document.getElementById("product-image").src = productData.image;
+                document.getElementById("product-name").textContent = productData.name;
+                document.getElementById("product-description").textContent = productData.description;
+                document.getElementById("product-price").textContent = productData.price;
+                document.getElementById("product-rating").textContent = productData.rating;
+            } else {
+                document.body.innerHTML = `<h1>Product not found</h1>`;
+            }
+        });
+    </script>
+</body>
+
+</html>

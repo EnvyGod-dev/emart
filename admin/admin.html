@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="mn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админ Панел</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+    <div class="admin-container">
+        <h1>Админ Панел</h1>
+        <form id="add-product-form">
+            <input type="text" id="product-name" placeholder="Барааны нэр" required>
+            <input type="text" id="product-description" placeholder="Барааны тайлбар" required>
+            <input type="number" id="product-price" placeholder="Үнэ" required>
+            <button type="submit">Бараа нэмэх</button>
+        </form>
+
+        <h2>Бүх бараа</h2>
+        <ul id="product-list"></ul>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const productList = document.getElementById("product-list");
+
+            const renderProducts = () => {
+                productList.innerHTML = "";
+                const products = JSON.parse(localStorage.getItem("products")) || [];
+                products.forEach((product, index) => {
+                    const li = document.createElement("li");
+                    li.textContent = `${product.name} - ${product.price}₮`;
+                    const deleteButton = document.createElement("button");
+                    deleteButton.textContent = "Устгах";
+                    deleteButton.addEventListener("click", () => {
+                        products.splice(index, 1);
+                        localStorage.setItem("products", JSON.stringify(products));
+                        renderProducts();
+                    });
+                    li.appendChild(deleteButton);
+                    productList.appendChild(li);
+                });
+            };
+
+            document.getElementById("add-product-form").addEventListener("submit", function (e) {
+                e.preventDefault();
+                const name = document.getElementById("product-name").value;
+                const description = document.getElementById("product-description").value;
+                const price = document.getElementById("product-price").value;
+
+                const products = JSON.parse(localStorage.getItem("products")) || [];
+                products.push({ name, description, price });
+                localStorage.setItem("products", JSON.stringify(products));
+                renderProducts();
+            });
+
+            renderProducts();
+        });
+    </script>
+</body>
+
+</html>

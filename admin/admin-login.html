@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="mn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+
+<body>
+    <div class="login-container">
+        <h1>Admin Login</h1>
+        <form id="admin-login-form">
+            <input type="email" id="email" placeholder="И-мэйл" required>
+            <input type="password" id="password" placeholder="Нууц үг" required>
+            <button type="submit">Нэвтрэх</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("admin-login-form").addEventListener("submit", function (e) {
+            e.preventDefault();
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            // Simulate admin credentials
+            if (email === "admin@emart.mn" && password === "admin123") {
+                alert("Админ амжилттай нэвтэрлээ!");
+                window.location.href = "admin-dashboard.html";
+            } else {
+                alert("Имэйл эсвэл нууц үг буруу байна!");
+            }
+        });
+    </script>
+</body>
+
+</html>
